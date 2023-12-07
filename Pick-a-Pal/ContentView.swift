@@ -7,17 +7,26 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
+    
+    // Contact name list @State keep it up dating
+    
+    @State private var names: [String] = ["Matthew", "AJ", "Yoshi", "Ong"]
+    @State private var nameToAdd = ""
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            List {
+                ForEach(names, id: \.self) { name in
+                    Text(name)
+                }
+            }
         }
         .padding()
     }
 }
+
 
 #Preview {
     ContentView()
