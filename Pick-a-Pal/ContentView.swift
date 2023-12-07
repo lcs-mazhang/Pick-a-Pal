@@ -17,6 +17,7 @@ struct ContentView: View {
     @State private var pickedName = ""
     
     var body: some View {
+        
         VStack {
             Text(pickedName.isEmpty ? " " : pickedName)
             
@@ -27,9 +28,12 @@ struct ContentView: View {
             }
             
             // Using name to add var to let us adding more contact list
+            
             TextField("Add Name", text: $nameToAdd)
+            
                 .autocorrectionDisabled()
                 .onSubmit {
+                    
                     if !nameToAdd.isEmpty {
                         names.append(nameToAdd)
                         nameToAdd = ""
@@ -37,6 +41,7 @@ struct ContentView: View {
                 }
             
             Button("Pick Random Name") {
+                
                 if names.count > 0 {
                     pickedName = names.randomElement()!
                 } else {
